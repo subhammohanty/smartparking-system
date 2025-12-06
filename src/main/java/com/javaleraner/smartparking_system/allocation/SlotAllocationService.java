@@ -38,4 +38,9 @@ public class SlotAllocationService {
                         }
                 );
     }
+
+    public Slot getAvailableSlot(){
+        return slotRepository.findFirstByAvailableTrue()
+                .orElseThrow(() -> new RuntimeException(" No Slots Found !"));
+    }
 }
